@@ -28,9 +28,9 @@ jobs:
         cache: 'npm'
     - run: pwd
     - run: npm i
-    - run: cd frontend
-    - run: pwd
-    - run: npm i
+    - working-directory: ./frontend
+        run: pwd
+        run: npm i
     - run: pwd
     - run: npm run build
     - run: pm2 stop 0
