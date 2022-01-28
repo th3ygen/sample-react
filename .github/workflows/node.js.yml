@@ -26,13 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Installing server dependencies
-        run: npm i
-    - name: Installing react dependencies
+    - run: npm i
+    - run: npm i
         working-directory: ./frontend
-        run: pwd
-        run: npm i
-        run: npm run build
+    - run: npm run build
+        working-directory: ./frontend
     - run: pm2 stop 0
     - run: pm2 start 0
     - run: pm2 save
